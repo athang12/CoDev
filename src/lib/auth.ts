@@ -3,6 +3,7 @@ import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { AuthOptions, DefaultSession, getServerSession } from "next-auth";
 import { Adapter } from "next-auth/adapters";
 import GoogleProvider from "next-auth/providers/google";
+import Auth0Provider from 'next-auth/providers/auth0';
 
 declare module "next-auth" {
   interface Session extends DefaultSession {
@@ -18,9 +19,10 @@ export const authConfig = {
     strategy: "jwt",
   },
   providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    Auth0Provider({
+      clientId: process.env.AUTH0_CLIENT_ID!,
+      clientSecret: process.env.AUTH0_CLIENT_SECRET!,
+      issuer: process.env.AUTH0_ISSUER_BASE_URL!,
     }),
   ],
   callbacks: {
