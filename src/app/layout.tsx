@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./provider";
 import { Header } from "./header";
-import { Footer } from "./footer"
 import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "@/components/ui/toaster";
 import { FaGithub, FaChrome, FaLinkedin} from "react-icons/fa";
